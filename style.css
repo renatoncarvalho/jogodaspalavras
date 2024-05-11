@@ -87,7 +87,6 @@ button:hover {
   font-family: 'Roboto', sans-serif;
   font-size: 1.5em;
 }
-
 /* Adicione este estilo para a div que mostra a categoria */
 #categoryDisplay {
   position: absolute;
@@ -97,42 +96,4 @@ button:hover {
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   display: none; /* Inicialmente oculta */
-}
-
-/* Media Queries para Responsividade */
-
-/* Estilos para telas menores (celulares) */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.8em;
-  }
-
-  td {
-    width: 60px;
-    height: 40px;
-    font-size: 14px;
-  }
-
-  button {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
-/* Estilos para telas médias (tablets) */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2em;
-  }
-
-  td {
-    width: 80px;
-    height: 45px;
-    font-size: 16px;
-  }
-
-  button {
-    padding: 12px 24px;
-    font-size: 16px;
-  }
 }
