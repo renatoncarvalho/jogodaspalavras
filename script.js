@@ -180,6 +180,9 @@ function moveSelectedToTop() {
 
   // Verifica se o jogo terminou (todas as linhas corretas)
   if (correctRows === 4) {
+    const category = getCategory(); // Obtenha a categoria
+    document.getElementById("categoryDisplay").style.display = "block"; // Exiba o div de categoria
+    document.getElementById("categoryDisplay").textContent = `Categoria: ${category}`; // Exiba a categoria
     document.getElementById("message").textContent = "Parabéns! Você completou o jogo!";
     stopTimer(); // Parar o cronômetro quando o jogo terminar
     gameCompleted = true; // Define que o jogo foi concluído
@@ -195,7 +198,6 @@ function moveSelectedToTop() {
     document.getElementById("checkButton").disabled = true;
   }
 }
-
 // Função para destacar as palavras da categoria correta
 function highlightCorrectWords() {
   const table = document.getElementById("gameBoard");
