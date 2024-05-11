@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo das Palavras</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Jogo das Palavras</h1>
+  <div id="timer">Tempo: <span id="time">0</span> segundos</div>
+  <div id="attempts">Tentativas: <span id="attemptCount">0</span></div>
+  <table id="gameBoard"></table>
+  <button id="checkButton" onclick="checkSelection()">Verifique</button>
+  <div id="categoryDisplay" style="display: none;"></div> <!-- Div para mostrar a categoria -->
+  <div id="message"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

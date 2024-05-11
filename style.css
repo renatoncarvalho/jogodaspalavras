@@ -1,0 +1,138 @@
+body {
+  font-family: 'Open Sans', sans-serif; /* Fonte moderna */
+  background-color: #f4f4f4; /* Cor de fundo suave */
+  color: #333; /* Cor de texto escura */
+}
+
+h1 { /* Estilo para o título do jogo */
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+td {
+  width: 100px;
+  height: 50px;
+  border: none; /* Remove bordas */
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff; /* Fundo branco */
+  border-radius: 8px;  /* Bordas arredondadas */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transição suave */
+}
+
+td:hover {
+  transform: scale(1.10); /* Aumenta um pouco ao passar o mouse */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra mais intensa no hover */
+}
+
+td.selected {
+  background-color: #FFA500; /* Cor de seleção mais suave */
+}
+
+#message {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #dcedc8; /* Cor de fundo suave para a mensagem */
+  border-radius: 4px; /* Bordas arredondadas */
+}
+
+button { /* Estilo para o botão */
+  display: block;
+  margin: 30px auto;
+  padding: 15px 30px;
+  background-color: #4CAF50; /* Cor verde */
+  color: white;
+  border: none;
+  border-radius: 6x; /* Bordas arredondadas */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+button:hover {
+  background-color: #45a049; /* Cor mais escura no hover */
+}
+
+/* Classes para destacar as linhas corretas */
+.category0 { 
+  background-color: #F06292; /* Rosa */
+}
+.category1 { 
+  background-color: #4DB6AC; /* Verde azulado */
+}
+.category2 { 
+  background-color: #A020F0; /* Purple */
+}
+.category3 { 
+  background-color: #7986CB; /* Lilás */
+}
+
+/* Estilo para o contador de tempo */
+#time {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+}
+
+/* Estilo para o contador de tentativas */
+#attemptCount {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+}
+
+/* Adicione este estilo para a div que mostra a categoria */
+#categoryDisplay {
+  position: absolute;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: none; /* Inicialmente oculta */
+}
+
+/* Media Queries para Responsividade */
+
+/* Estilos para telas menores (celulares) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  td {
+    width: 60px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Estilos para telas médias (tablets) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  td {
+    width: 80px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
