@@ -123,13 +123,13 @@ function getCategory() {
     const word = words[index];
 
     if (word === "Maçã" || word === "Banana" || word === "Laranja" || word === "Uva") {
-      categories.add("Categoria Frutas");
+      categories.add("Frutas");
     } else if (word === "Cachorro" || word === "Gato" || word === "Elefante" || word === "Leão") {
-      categories.add("Categoria Animais");
+      categories.add("Animais");
     } else if (word === "Azul" || word === "Verde" || word === "Vermelho" || word === "Amarelo") {
-      categories.add("Categoria Cores");
+      categories.add("Cores");
     } else if (word === "Carro" || word === "Avião" || word === "Trem" || word === "Bicicleta") {
-      categories.add("Categoria Meios de Transporte");
+      categories.add("Meios de Transporte");
     }
   }
 
