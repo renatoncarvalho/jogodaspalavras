@@ -146,7 +146,7 @@ const listaDePalavras = {
     "Tomar Banho",
     "Dormir"
   ],
-  "Halloween": [
+  "Dia das Bruxas": [
     "Morcego",
     "Abóbora",
     "Bruxa",
@@ -285,7 +285,6 @@ const listaDePalavras = {
     "Praça",
     "Estádio",
     "Delegacia",
-    "Cinema",
     "Castelo",
     "Estação",
     "Centro",
