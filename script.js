@@ -37,20 +37,20 @@ function initializeGame() {
   shuffle(categories);
   const selectedCategories = categories.slice(0, 4);
 
-// Cria o array words com as palavras das categorias selecionadas
-words = [];
-for (let i = 0; i < selectedCategories.length; i++) {
-  const categoryName = selectedCategories[i]; // Nome da categoria
-  if (listaDePalavras[categoryName]) { // Verifica se a categoria existe
-    shuffle(listaDePalavras[categoryName]); // Embaralha as palavras da categoria
-    for (let j = 0; j < 4; j++) {
-      words.push(listaDePalavras[categoryName][j]); // Adiciona as palavras
+  // Cria o array words com as palavras das categorias selecionadas
+  words = [];
+  for (let i = 0; i < selectedCategories.length; i++) {
+    const categoryName = selectedCategories[i]; // Nome da categoria
+    if (listaDePalavras[categoryName]) { // Verifica se a categoria existe
+      shuffle(listaDePalavras[categoryName]); // Embaralha as palavras da categoria
+      for (let j = 0; j < 4; j++) {
+        words.push(listaDePalavras[categoryName][j]); // Adiciona as palavras
+      }
     }
   }
-}
 
-// Embaralha as palavras no array words
-shuffle(words);
+  // Embaralha as palavras no array words
+  shuffle(words);
 
   createGameBoard();
 }
@@ -122,11 +122,15 @@ function checkSelection() {
     message.textContent = "Selecione 4 palavras!";
     return;
   }
-  console.log(selectedWords.length);
+
+  // Determina a categoria com base nas palavras selecionadas
   const category = getCategory();
 
-  if (category) {
-    message.textContent = `Parab鮳! A categoria 頤{category}`;
+  // Verifica se todas as palavras selecionadas pertencem a mesma categoria
+  const allSameCategory = selectedWords.every((index) => getCategory(index) === category);
+
+  if (allSameCategory) {
+    message.textContent = `Parabéns! A categoria é{category}`;
     moveSelectedToTop();
   } else {
     message.textContent = "Tente de Novo!";
@@ -134,29 +138,12 @@ function checkSelection() {
 }
 
 // Determina a categoria com base nas palavras selecionadas
-function getCategory() {
-  const categoryCounts = {}; // Objeto para contar a ocorrência de cada categoria
-
-  // Conta quantas palavras de cada categoria foram selecionadas
-  for (const word of words) {
-    for (const categoryName in categories) {
-      if (categories[categoryName].includes(word)) {
-        categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
-      }
+function getCategory(index) {
+  for (const categoryName in categories) {
+    if (categories[categoryName].includes(words[index])) {
+      return categoryName;
     }
   }
-
-  // Encontra a categoria com mais ocorrencias
-  let mostFrequentCategory = null;
-  let maxCount = 0;
-  for (const categoryName in categoryCounts) {
-    if (categoryCounts[categoryName] > maxCount) {
-      mostFrequentCategory = categoryName;
-      maxCount = categoryCounts[categoryName];
-    }
-  }
-
-  return mostFrequentCategory;
 }
 
 // Move as palavras selecionadas para o topo do tabuleiro
@@ -202,7 +189,7 @@ function moveSelectedToTop() {
     const category = getCategory(); // Obtenha a categoria
     document.getElementById("categoryDisplay").style.display = "block"; // Exiba o div de categoria
     document.getElementById("categoryDisplay").textContent = `Categoria: ${category}`; // Exiba a categoria
-    document.getElementById("message").textContent = "Parab鮳! Vocꠣompletou o jogo!";
+    document.getElementById("message").textContent = "Parabéns! Você completou o jogo!";
     stopTimer(); // Parar o cronômetro quando o jogo terminar
     gameCompleted = true; // Define que o jogo foi concluído
 
