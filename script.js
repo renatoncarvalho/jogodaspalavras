@@ -1,44 +1,61 @@
-const words = [
-  // Categoria 1
-  "Maçã", "Banana", "Laranja", "Uva",
-  // Categoria 2
-  "Cachorro", "Gato", "Elefante", "Leão",
-  // Categoria 3
-  "Azul", "Verde", "Vermelho", "Amarelo",
-  // Categoria 4
-  "Carro", "Avião", "Trem", "Bicicleta"
-];
+// script.js
+let words = [];
+let categories = Object.keys(listaDePalavras); // Acesse os dados do JSON diretamente
 
 let selectedWords = [];
-let correctRows = 0; // Variável para controlar as linhas corretas
-let attempts = 0; // Contador de tentativas
+let correctRows = 0;
+let attempts = 0;
 
-let timerInterval; // Variável para armazenar o intervalo do cronômetro
-let elapsedTime = 0; // Tempo decorrido em segundos
-let attemptCount = 0; // Contador de tentativas
-let timerStarted = false; // Variável para controlar se o cronômetro foi iniciado
-let gameCompleted = false; // Variável para controlar se o jogo foi concluído
+let timerInterval;
+let elapsedTime = 0;
+let attemptCount = 0;
+let timerStarted = false;
+let gameCompleted = false;
 
-// Função para iniciar o cronômetro
+// Funcao para iniciar o cronometro
 function startTimer() {
-  timerInterval = setInterval(function() {
+  timerInterval = setInterval(function () {
     elapsedTime++;
     document.getElementById("time").textContent = elapsedTime;
   }, 1000); // Atualiza a cada segundo
 }
 
-// Função para parar o cronômetro
+// Funcao para parar o cronometro
 function stopTimer() {
   clearInterval(timerInterval);
 }
 
-// Função para atualizar o contador de tentativas
+// Funcao para atualizar o contador de tentativas
 function updateAttemptCount() {
   attemptCount++;
   document.getElementById("attemptCount").textContent = attemptCount;
 }
 
-// Embaralha as palavras aleatoriamente
+// Define a Funcao initializeGame no escopo global
+function initializeGame() {
+  // Seleciona 4 categorias aleatorias
+  shuffle(categories);
+  const selectedCategories = categories.slice(0, 4);
+
+// Cria o array words com as palavras das categorias selecionadas
+words = [];
+for (let i = 0; i < selectedCategories.length; i++) {
+  const categoryName = selectedCategories[i]; // Nome da categoria
+  if (listaDePalavras[categoryName]) { // Verifica se a categoria existe
+    shuffle(listaDePalavras[categoryName]); // Embaralha as palavras da categoria
+    for (let j = 0; j < 4; j++) {
+      words.push(listaDePalavras[categoryName][j]); // Adiciona as palavras
+    }
+  }
+}
+
+// Embaralha as palavras no array words
+shuffle(words);
+
+  createGameBoard();
+}
+
+// Embaralha os elementos de um array aleatoriamente
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -46,18 +63,19 @@ function shuffle(array) {
   }
 }
 
+
 // Cria o tabuleiro do jogo
 function createGameBoard() {
   const table = document.getElementById("gameBoard");
-  table.innerHTML = ''; // Limpa o tabuleiro
+  table.innerHTML = ""; // Limpa o tabuleiro
 
   for (let i = 0; i < 4; i++) {
     const row = table.insertRow();
     for (let j = 0; j < 4; j++) {
       const cell = row.insertCell();
-      const index = i * 4 + j; // Índice da palavra
+      const index = i * 4 + j; // Indice da palavra
       cell.textContent = words[index];
-      cell.addEventListener('click', () => selectWord(index));
+      cell.addEventListener("click", () => selectWord(index));
     }
   }
 
@@ -67,21 +85,21 @@ function createGameBoard() {
 
 // Seleciona/desseleciona uma palavra
 function selectWord(index) {
-  // Verifica se o jogo foi concluído
+  // Verifica se o jogo foi concluido
   if (gameCompleted) {
     return;
   }
 
-  // Verifica se o cronômetro já foi iniciado
+  // Verifica se o cronometro ja foi iniciado
   if (!timerStarted) {
-    startTimer(); // Inicia o cronômetro
-    timerStarted = true; // Define que o cronômetro foi iniciado
+    startTimer(); // Inicia o cronometro
+    timerStarted = true; // Define que o cronometro foi iniciado
   }
 
   const cell = document.getElementById("gameBoard").rows[Math.floor(index / 4)].cells[index % 4];
   if (cell.classList.contains("selected")) {
     cell.classList.remove("selected");
-    selectedWords = selectedWords.filter(i => i !== index);
+    selectedWords = selectedWords.filter((i) => i !== index);
   } else {
     if (selectedWords.length < 4) {
       cell.classList.add("selected");
@@ -90,9 +108,9 @@ function selectWord(index) {
   }
 }
 
-// Verifica a seleção do jogador
+// Verifica a selecao do jogador
 function checkSelection() {
-  // Verifica se o jogo foi concluído
+  // Verifica se o jogo foi concluido
   if (gameCompleted) {
     return;
   }
@@ -104,56 +122,57 @@ function checkSelection() {
     message.textContent = "Selecione 4 palavras!";
     return;
   }
-
+  console.log(selectedWords.length);
   const category = getCategory();
 
   if (category) {
-    message.textContent = `Parabéns! A categoria é ${category}`;
+    message.textContent = `Parab鮳! A categoria 頤{category}`;
     moveSelectedToTop();
   } else {
     message.textContent = "Tente de Novo!";
   }
 }
 
-// Determina a categoria com base nas palavras selecionadas 
+// Determina a categoria com base nas palavras selecionadas
 function getCategory() {
-  const categories = new Set();
+  const categoryCounts = {}; // Objeto para contar a ocorrência de cada categoria
 
-  for (const index of selectedWords) {
-    const word = words[index];
-
-    if (word === "Maçã" || word === "Banana" || word === "Laranja" || word === "Uva") {
-      categories.add("Frutas");
-    } else if (word === "Cachorro" || word === "Gato" || word === "Elefante" || word === "Leão") {
-      categories.add("Animais");
-    } else if (word === "Azul" || word === "Verde" || word === "Vermelho" || word === "Amarelo") {
-      categories.add("Cores");
-    } else if (word === "Carro" || word === "Avião" || word === "Trem" || word === "Bicicleta") {
-      categories.add("Meios de Transporte");
+  // Conta quantas palavras de cada categoria foram selecionadas
+  for (const word of words) {
+    for (const categoryName in categories) {
+      if (categories[categoryName].includes(word)) {
+        categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
+      }
     }
   }
 
-  if (categories.size === 1) {
-    return categories.values().next().value;
-  } else {
-    return null;
+  // Encontra a categoria com mais ocorrencias
+  let mostFrequentCategory = null;
+  let maxCount = 0;
+  for (const categoryName in categoryCounts) {
+    if (categoryCounts[categoryName] > maxCount) {
+      mostFrequentCategory = categoryName;
+      maxCount = categoryCounts[categoryName];
+    }
   }
+
+  return mostFrequentCategory;
 }
 
 // Move as palavras selecionadas para o topo do tabuleiro
 function moveSelectedToTop() {
-  // Verifica se o jogo foi concluído
+  // Verifica se o jogo foi concluido
   if (gameCompleted) {
     return;
   }
 
-  // Ordena os índices das palavras selecionadas
+  // Ordena os indices das palavras selecionadas
   selectedWords.sort((a, b) => a - b);
 
   // Cria um novo array para armazenar as palavras reorganizadas
   let newWords = [];
 
-  // 1. Adiciona as palavras da categoria correta ao início do novo array
+  // 1. Adiciona as palavras da categoria correta ao inicio do novo array
   for (const index of selectedWords) {
     newWords.push(words[index]);
   }
@@ -172,7 +191,7 @@ function moveSelectedToTop() {
   // Incrementa o contador de linhas corretas
   correctRows++;
 
-  // Limpa a seleção e recria o tabuleiro
+  // Limpa a selecao e recria o tabuleiro
   selectedWords = [];
   createGameBoard();
   highlightCorrectWords(); // Destaca as palavras corretas
@@ -183,14 +202,14 @@ function moveSelectedToTop() {
     const category = getCategory(); // Obtenha a categoria
     document.getElementById("categoryDisplay").style.display = "block"; // Exiba o div de categoria
     document.getElementById("categoryDisplay").textContent = `Categoria: ${category}`; // Exiba a categoria
-    document.getElementById("message").textContent = "Parabéns! Você completou o jogo!";
+    document.getElementById("message").textContent = "Parab鮳! Vocꠣompletou o jogo!";
     stopTimer(); // Parar o cronômetro quando o jogo terminar
     gameCompleted = true; // Define que o jogo foi concluído
 
     // Desabilitar seleção de palavras
     const cells = document.querySelectorAll("#gameBoard td");
-    cells.forEach(cell => {
-      cell.removeEventListener('click', selectWord);
+    cells.forEach((cell) => {
+      cell.removeEventListener("click", selectWord);
       cell.style.pointerEvents = "none";
     });
 
@@ -198,32 +217,32 @@ function moveSelectedToTop() {
     document.getElementById("checkButton").disabled = true;
   }
 }
-// Função para destacar as palavras da categoria correta
+
+// Funcao para destacar as palavras da categoria correta
 function highlightCorrectWords() {
   const table = document.getElementById("gameBoard");
 
   // Define cores diferentes para cada categoria (classes CSS corretas)
   const categoryColors = ["category0", "category1", "category2", "category3"];
 
-  // Percorre todas as células da tabela
+  // Percorre todas as celulas da tabela
   for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 4; j++) {
       const cell = table.rows[i].cells[j];
 
-      // Remove as classes de categoria anteriores da célula
+      // Remove as classes de categoria anteriores da celula
       cell.classList.remove("category0", "category1", "category2", "category3");
 
-      // Se a célula faz parte das linhas corretas, aplica a classe de cor correspondente
+      // Se a celula faz parte das linhas corretas, aplica a classe de cor correspondente
       if (i < correctRows) {
         cell.classList.add(categoryColors[i]);
       }
 
-      // Remove a classe 'selected' da célula
+      // Remove a classe 'selected' da celula
       cell.classList.remove("selected");
     }
   }
 }
 
-// Inicializa o jogo
-shuffle(words);
-createGameBoard();
+// Chama initializeGame para iniciar o jogo
+initializeGame();
