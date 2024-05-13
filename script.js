@@ -130,7 +130,6 @@ function checkSelection() {
   const allSameCategory = selectedWords.every((index) => getCategory(index) === category);
 
   if (allSameCategory) {
-    message.textContent = `Parabéns! A categoria é{category}`;
     moveSelectedToTop();
   } else {
     message.textContent = "Tente de Novo!";
@@ -140,7 +139,7 @@ function checkSelection() {
 // Determina a categoria com base nas palavras selecionadas
 function getCategory(index) {
   for (const categoryName in categories) {
-    if (categories[categoryName].includes(words[index])) {
+    if (categories[categoryName].includes(words[index]) || words[index] === categories[categoryName]) {
       return categoryName;
     }
   }
@@ -186,9 +185,6 @@ function moveSelectedToTop() {
 
   // Verifica se o jogo terminou (todas as linhas corretas)
   if (correctRows === 4) {
-    const category = getCategory(); // Obtenha a categoria
-    document.getElementById("categoryDisplay").style.display = "block"; // Exiba o div de categoria
-    document.getElementById("categoryDisplay").textContent = `Categoria: ${category}`; // Exiba a categoria
     document.getElementById("message").textContent = "Parabéns! Você completou o jogo!";
     stopTimer(); // Parar o cronômetro quando o jogo terminar
     gameCompleted = true; // Define que o jogo foi concluído
