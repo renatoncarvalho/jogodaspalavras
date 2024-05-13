@@ -63,7 +63,6 @@ function shuffle(array) {
   }
 }
 
-
 // Cria o tabuleiro do jogo
 function createGameBoard() {
   const table = document.getElementById("gameBoard");
@@ -127,7 +126,7 @@ function checkSelection() {
   const category = getCategory();
 
   // Verifica se todas as palavras selecionadas pertencem a mesma categoria
-  const allSameCategory = selectedWords.every((index) => getCategory(index) === category);
+  const allSameCategory = selectedWords.every((index, _, array) => getCategory(index) === getCategory(array[0]));
 
   if (allSameCategory) {
     moveSelectedToTop();
@@ -138,8 +137,9 @@ function checkSelection() {
 
 // Determina a categoria com base nas palavras selecionadas
 function getCategory(index) {
-  for (const categoryName in categories) {
-    if (categories[categoryName].includes(words[index]) || words[index] === categories[categoryName]) {
+  const word = words[index];
+  for (const categoryName in listaDePalavras) {
+    if (listaDePalavras[categoryName].includes(word)) {
       return categoryName;
     }
   }
@@ -196,9 +196,15 @@ function moveSelectedToTop() {
       cell.style.pointerEvents = "none";
     });
 
-    // Desabilitar botão "Verifique"
+     // Desabilitar botão "Verifique"
     document.getElementById("checkButton").disabled = true;
+  } else {
+    // Adiciona a categoria à mensagem de sucesso
+    const category = getCategory(selectedWords[0]);
   }
+
+  // Atualiza a exibição da categoria
+  document.getElementById("category").textContent = category;
 }
 
 // Funcao para destacar as palavras da categoria correta
