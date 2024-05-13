@@ -1,42 +1,42 @@
-// palavras.js (crie este arquivo e cole o conte˙do do seu JSON aqui)
+// palavras.js (crie este arquivo e cole o conte√∫do do seu JSON aqui)
 const listaDePalavras = {
-  "PaÌses De LÌngua Portuguesa": [
+  "Pa√≠ses De L√≠ngua Portuguesa": [
     "Portugal",
     "Brasil",
     "Angola",
-    "MoÁambique",
+    "Mo√ßambique",
     "Cabo Verde",
     "Timor Leste",
-    "S„o TomÈ e PrÌncipe",
-    "GuinÈ"
+    "S√£o Tom√© e Pr√≠ncipe",
+    "Guin√©"
   ],
-  "SaudaÁıes": [
+  "Sauda√ß√µes": [
     "Oi",
-    "Ol·",
+    "Ol√°",
     "Bom Dia!",
     "Boa Tarde!",
     "Boa Noite!",
     "Beleza?",
     "Tchau",
     "Adeus",
-    "AtÈ Logo"
+    "At√© Logo"
   ],
   "Nacionalidades": [
-    "PortuguÍs",
-    "JaponÍs",
-    "FrancÍs",
+    "Portugu√™s",
+    "Japon√™s",
+    "Franc√™s",
     "Brasileiro"
   ],
-  "EstaÁıes Do Ano": [
+  "Esta√ß√µes Do Ano": [
     "Primavera",
-    "Ver„o",
+    "Ver√£o",
     "Outono",
     "Inverno"
   ],
   "Meses Do Ano": [
     "Janeiro",
     "Fevereiro",
-    "MarÁo",
+    "Mar√ßo",
     "Abril",
     "Maio",
     "Junho",
@@ -49,33 +49,33 @@ const listaDePalavras = {
   ],
   "Dias Da Semana": [
     "Segunda",
-    "TerÁa",
+    "Ter√ßa",
     "Quarta",
     "Quinta",
     "Sexta",
-    "S·bado",
+    "S√°bado",
     "Domingo"
   ],
-  "Profissıes": [
+  "Profiss√µes": [
     "Dentista",
-    "MÈdico",
+    "M√©dico",
     "Enfermeira",
     "Encanador",
     "Arquiteto"
   ],
-  "FamÌlia": [
-    "M„e",
+  "Fam√≠lia": [
+    "M√£e",
     "Pai",
-    "Irm„o",
+    "Irm√£o",
     "Filho",
     "Tios",
-    "AvÛs",
+    "Av√≥s",
     "Cunhado",
     "Genro",
     "Sogra",
     "Primo"
   ],
-  "CaracterÌsticas / Adjetivos": [
+  "Caracter√≠sticas / Adjetivos": [
     "Alto",
     "Baixo",
     "Velho",
@@ -97,38 +97,38 @@ const listaDePalavras = {
     "Rosa",
     "Marrom"
   ],
-  "EmoÁıes": [
+  "Emo√ß√µes": [
     "Alegria",
     "Tristeza",
     "Calma",
-    "TÈdio",
+    "T√©dio",
     "Surpresa",
-    "Paix„o"
+    "Paix√£o"
   ],
   "Pronomes Pessoais": [
     "Ele",
     "Ela",
-    "NÛs",
+    "N√≥s",
     "Eu",
-    "VocÍs"
+    "Voc√™s"
   ],
   "Verbo Ser": [
-    "…",
+    "√â",
     "Sou",
     "Somos",
-    "S„o"
+    "S√£o"
   ],
   "Verbo Ter": [
     "Tenho",
     "Tem",
     "Temos",
-    "TÍm"
+    "T√™m"
   ],
-  "InformaÁıes Pessoais": [
+  "Informa√ß√µes Pessoais": [
     "Nome",
-    "EndereÁo",
+    "Endere√ßo",
     "Telefone",
-    "Anivers·rio"
+    "Anivers√°rio"
   ],
   "Palavras Interrogativas / Perguntas": [
     "Como",
@@ -146,48 +146,48 @@ const listaDePalavras = {
     "Tomar Banho",
     "Dormir"
   ],
-  "Dia Das Bruxas": [
+  "Halloween": [
     "Morcego",
-    "AbÛbora",
+    "Ab√≥bora",
     "Bruxa",
     "Aranha"
   ],
-  "Folclore Brasileiro": [
+  "Folclore": [
     "Saci",
     "Iara",
     "Curupira",
-    "VitÛria-rÈgia",
+    "Vit√≥ria-r√©gia",
     "Lobisomem"
   ],
-  "Tem Na Escola": [
+  "Escola": [
     "Carteira",
     "Quadro",
-    "RelÛgio",
+    "Rel√≥gio",
     "Professor"
   ],
   "Material Escolar": [
-    "L·pis",
+    "L√°pis",
     "Caderno",
     "Caneta",
     "Apontador",
-    "RÈgua",
+    "R√©gua",
     "Cola"
   ],
   "Esportes": [
-    "FutevÙlei",
+    "Futev√¥lei",
     "Capoeira",
     "Futebol",
-    "JudÙ"
+    "Jud√¥"
   ],
   "Lazer": [
     "Cinema",
     "Teatro",
     "Jogo",
-    "DanÁa"
+    "Dan√ßa"
   ],
   "Partes Do Corpo": [
-    "PescoÁo",
-    "CabeÁa",
+    "Pesco√ßo",
+    "Cabe√ßa",
     "Olhos",
     "Nariz",
     "Boca",
@@ -196,40 +196,40 @@ const listaDePalavras = {
     "Dedos",
     "Barriga",
     "Perna",
-    "PÈ",
-    "M„o",
+    "P√©",
+    "M√£o",
     "Unhas"
   ],
   "Os Sentidos": [
-    "Vis„o",
+    "Vis√£o",
     "Tato",
     "Paladar",
-    "AudiÁ„o",
+    "Audi√ß√£o",
     "Olfato"
   ],
-  "Problemas De Sa˙de": [
+  "Problemas De Sa√∫de": [
     "Febre",
-    "Dor De CabeÁa",
+    "Dor De Cabe√ßa",
     "Enjoo",
     "Gripe"
   ],
   "Carnaval": [
     "Desfile",
     "Samba",
-    "Carro AlegÛrico",
+    "Carro Aleg√≥rico",
     "Fantasia"
   ],
   "Roupas": [
     "Camisa",
-    "CalÁa",
+    "Cal√ßa",
     "Vestido",
     "Saia",
-    "Macac„o",
+    "Macac√£o",
     "Camiseta",
     "Calcinha",
     "Meia"
   ],
-  "AcessÛrios": [
+  "Acess√≥rios": [
     "Bolsa",
     "Sapato",
     "Cinto",
@@ -239,55 +239,55 @@ const listaDePalavras = {
     "Blu",
     "Jade",
     "Linda",
-    "T˙lio"
+    "T√∫lio"
   ],
   "Partes Da Casa": [
     "Sala",
     "Quarto",
     "Banheiro",
-    "EscritÛrio",
+    "Escrit√≥rio",
     "Quintal",
     "Cozinha"
   ],
-  "MÛveis": [
+  "M√≥veis": [
     "Poltrona",
-    "Sof·",
+    "Sof√°",
     "Mesa",
-    "Arm·rio",
-    "CÙmoda",
+    "Arm√°rio",
+    "C√¥moda",
     "Guardarroupa",
     "Mesa De Cabeceira"
   ],
-  "EletrodomÈsticos": [
-    "Fog„o",
+  "Eletrodom√©sticos": [
+    "Fog√£o",
     "Geladeira",
-    "M·quina De Lavar",
-    "Televis„o"
+    "M√°quina De Lavar",
+    "Televis√£o"
   ],
   "Meios De Transporte": [
     "Carro",
-    "AutomÛvel",
-    "‘nibus",
+    "Autom√≥vel",
+    "√înibus",
     "Moto",
-    "Caminh„o",
+    "Caminh√£o",
     "Barco",
     "Navio",
     "Canoa",
-    "Avi„o",
+    "Avi√£o",
     "Bicicleta",
     "Trem",
-    "MetrÙ",
-    "HelicÛptero",
+    "Metr√¥",
+    "Helic√≥ptero",
     "Bonde",
-    "T·xi"
+    "T√°xi"
   ],
   "Lugares Na Cidade": [
-    "PraÁa",
-    "Est·dio",
+    "Pra√ßa",
+    "Est√°dio",
     "Delegacia",
     "Cinema",
     "Castelo",
-    "EstaÁ„o",
+    "Esta√ß√£o",
     "Centro",
     "Teatro",
     "Universidade",
@@ -298,43 +298,43 @@ const listaDePalavras = {
     "Livraria",
     "Sorveteria",
     "Mercado",
-    "AÁougue"
+    "A√ßougue"
   ],
   "Comida": [
-    "Macarr„o",
+    "Macarr√£o",
     "Queijo",
-    "P„o",
+    "P√£o",
     "Cereal",
     "Ovo",
     "Omelete",
     "Iogurte",
     "Arroz",
-    "Feij„o",
+    "Feij√£o",
     "Salada",
-    "Macarr„o",
+    "Macarr√£o",
     "Sopa"
   ],
   "Frutas": [
 	"Abacate",
 	"Abacaxi",
 	"Caju",
-	"MaÁ„",
+	"Ma√ß√£",
 	"Laranja",
 	"Uva",
 	"Melancia",
-	"PÍssego",
+	"P√™ssego",
 	"Cereja",
-	"Mel„o",
+	"Mel√£o",
 	"Pera",
-	"Mam„o",
+	"Mam√£o",
 	"Manga",
-	"Lim„o",
+	"Lim√£o",
 	"Morango",
-	"Maracuj·"
+	"Maracuj√°"
 	],
 	"Verduras": [
 	  "Milho",
-	  "Piment„o",
+	  "Piment√£o",
 	  "Ervilha",
 	  "Cenoura",
 	  "Berinjela",
@@ -345,25 +345,25 @@ const listaDePalavras = {
 	  "Cebola",
 	  "Couve-flor",
 	  "Beterraba",
-	  "Alho-porÛ",
+	  "Alho-por√≥",
 	  "Pepino"
 	],
-	"Carnes (proteÌnas De Origem Animal)": [
+	"Carnes (prote√≠nas De Origem Animal)": [
 	  "Porco",
 	  "Frango",
 	  "Boi",
 	  "Peixe",
-	  "Camar„o",
+	  "Camar√£o",
 	  "Lagosta"
 	],
 	"Bebidas": [
 	  "Suco",
 	  "Refrigerante",
-	  "¡gua De Coco",
+	  "√Ågua De Coco",
 	  "Caipirinha",
 	  "Leite",
-	  "Ch·",
-	  "CafÈ",
+	  "Ch√°",
+	  "Caf√©",
 	  "Limonada"
 	],
 	"Sobremesa": [
@@ -374,12 +374,12 @@ const listaDePalavras = {
 	],
 	"Comida Brasileira": [
 	  "Coxinha",
-	  "AÁaÌ",
+	  "A√ßa√≠",
 	  "Feijoada",
 	  "Tapioca",
-	  "P„o De Queijo",
+	  "P√£o De Queijo",
 	  "Churrasco",
 	  "Pamonha",
-	  "AcarajÈ"
+	  "Acaraj√©"
 	]
   };
